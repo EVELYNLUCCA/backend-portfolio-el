@@ -6,28 +6,30 @@ import com.Portafolio.AP.repository.SkillsRepo;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
-public class SkillsService {
-    private final SkillsRepo  skillsRepo;
-    
+
+public class SkillsService implements ISkillsService{
     @Autowired
-    public SkillsService(SkillsRepo skillsRepo){
-        this.skillsRepo = skillsRepo;
-    }
-    
-    public Skills addSkills(Skills skills){
-        return skillsRepo.save(skills);
-    }
-    public List<Skills> buscarSkills(){
-        return skillsRepo.findAll();
-    }
-    public Skills editarSkills(Skills skills){
-        return skillsRepo.save(skills); 
-    }
-    public void borrarSkills(Long id){
-         skillsRepo.deleteById(id);
-    }  
+	public SkillsRepo skillsRepo;
+
+	@Override
+	public List<Skills> verSkills() {
+		return skillsRepo.findAll();	
+	}
+
+	@Override
+	public void crearSkills(Skills skills) {
+		skillsRepo.save(skills);
+	}
+
+	@Override
+	public void eliminarSkills(Long id) {
+		skillsRepo.deleteById(id);	
+	}
+
+	@Override
+	public Skills buscarSkills(Long id) {
+		return skillsRepo.findById(id).orElse(null);
+	}
  }

@@ -6,30 +6,30 @@ import com.Portafolio.AP.repository.ProyectoRepo;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
-public class ProyectoService {
-    private final ProyectoRepo proyectoRepo;
+
+public class ProyectoService implements IProyectoService {
     @Autowired
-	public ProyectoService(ProyectoRepo proyectoRepo) {
-		this.proyectoRepo = proyectoRepo;
+	public ProyectoRepo proyectoRepo;
+
+	@Override
+	public List<Proyecto> verProyecto() {
+		return proyectoRepo.findAll();	
 	}
-	
-	public Proyecto agregarProyecto(Proyecto proyecto) {
-		return proyectoRepo.save(proyecto);
+
+	@Override
+	public void crearProyecto(Proyecto proyecto) {
+		proyectoRepo.save(proyecto);
 	}
-	
-	public List<Proyecto> buscarProyecto(){
-		return proyectoRepo.findAll();
+
+	@Override
+	public void eliminarProyecto(Long id) {
+		proyectoRepo.deleteById(id);	
 	}
-	
-	public Proyecto editarProyecto(Proyecto proyecto) {
-		return proyectoRepo.save(proyecto);	
-	}
-	
-	public void borrarProyecto(Long id) {
-		proyectoRepo.deleteById(id);
+
+	@Override
+	public Proyecto buscarProyecto(Long id) {
+		return proyectoRepo.findById(id).orElse(null);
 	}
 }
