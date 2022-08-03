@@ -43,7 +43,8 @@ public class UsuarioPrincipal implements UserDetails {
         return nombre;
     }
 
-    public String getNombreUsuario() {
+    @Override
+    public String getUsername() {
         return nombreUsuario;
     }
 
@@ -65,15 +66,5 @@ public class UsuarioPrincipal implements UserDetails {
     @Override
     public boolean isEnabled() {
        return true;
-    }
-
-    @Override
-    public String getUsername() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+    }   
  }
-
-
-
-

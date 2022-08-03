@@ -12,5 +12,4 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Integer> {
     
     boolean existsByNombreUsuario(String nombreUsuario);
 
-    public boolean existByNombreUsuario(String NombreUsuario);
 }

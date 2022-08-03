@@ -18,16 +18,11 @@ public class UsuarioService {
         return iusuarioRepository.findByNombreUsuario(nombreUsuario);
     } 
     
-    public boolean existByNombreUsuario(String nombreUsuario){
-        return iusuarioRepository.existByNombreUsuario(nombreUsuario);
+    public boolean existsByNombreUsuario(String nombreUsuario){
+        return iusuarioRepository.existsByNombreUsuario(nombreUsuario);
     }
     
     public void save(Usuario usuario){
         iusuarioRepository.save(usuario);
-    }
-
-    public boolean existsByNuevoUsuario(String nombreUsuario) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
+    }  
 }
