@@ -14,16 +14,20 @@ public class UsuarioService {
     @Autowired 
     IUsuarioRepository iusuarioRepository;
     
-    public Optional<Usuario> getByNombreUsuario(String NombreUsuario){
-        return iusuarioRepository.findByNombreUsuario(NombreUsuario);
+    public Optional<Usuario> getByNombreUsuario(String nombreUsuario){
+        return iusuarioRepository.findByNombreUsuario(nombreUsuario);
     } 
     
-    public boolean existByNombreUsuario(String NombreUsuario){
-        return iusuarioRepository.existByNombreUsuario(NombreUsuario);
+    public boolean existByNombreUsuario(String nombreUsuario){
+        return iusuarioRepository.existByNombreUsuario(nombreUsuario);
     }
     
     public void save(Usuario usuario){
         iusuarioRepository.save(usuario);
+    }
+
+    public boolean existsByNuevoUsuario(String nombreUsuario) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

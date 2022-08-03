@@ -2,9 +2,11 @@
 package com.Portafolio.AP.security.jwt;
 
 import com.Portafolio.AP.security.models.UsuarioPrincipal;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
 import java.util.Date;
 import org.slf4j.Logger;
@@ -38,16 +40,16 @@ public class JwtProvider {
          } catch (MalformedJwtException e){
              logger.error("Token mal formado");
          }
-         }catch(UnsupportedJwtException e){
+         catch(UnsupportedJwtException e){
              logger.error("Token no soportado");
          }
-         }catch(ExpiredJwtException e){
+         catch(ExpiredJwtException e){
              logger.error("Token expirado");
          }
-         }catch (IllegalArgumentException e){
+         catch (IllegalArgumentException e){
              logger.error("Token vacío");
          }
-         }catch (SignatureException e){
+         catch (SignatureException e){
              logger.error("Firma no válida");
          }
          return false;
