@@ -49,7 +49,7 @@ public class JwtProvider {
          catch (IllegalArgumentException e){
              logger.error("Token vacío");
          }
-         catch (SignatureException e){
+         catch(SignatureException e){
              logger.error("Firma no válida");
          }
          return false;

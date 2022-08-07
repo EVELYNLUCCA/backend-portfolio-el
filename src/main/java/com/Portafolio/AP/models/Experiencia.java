@@ -1,32 +1,38 @@
 
 package com.Portafolio.AP.models;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Experiencia {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idExp;
-    private String institucionExp;
-    private String tituloExp;  
-    private int anoInicioExp;
-    private int anoFinExp;
+public class Experiencia implements Serializable{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idExp;
+	private String empresa;
+	private int anoInicio;
+	private int anoFin;
+	private String descripcion;
+        
+        
+    //Constructor
 
     public Experiencia() {
     }
 
-    public Experiencia(Long idExp, String institucionExp, String tituloExp, int anoInicioExp, int anoFinExp) {
+    public Experiencia(Long idExp, String empresa, int anoInicio, int anoFin, String descripcion) {
         this.idExp = idExp;
-        this.institucionExp = institucionExp;
-        this.tituloExp = tituloExp;
-        this.anoInicioExp = anoInicioExp;
-        this.anoFinExp = anoFinExp;
+        this.empresa = empresa;
+        this.anoInicio = anoInicio;
+        this.anoFin = anoFin;
+        this.descripcion = descripcion;
     }
 
+    //getter y setter
+    
     public Long getIdExp() {
         return idExp;
     }
@@ -35,39 +41,45 @@ public class Experiencia {
         this.idExp = idExp;
     }
 
-    public String getInstitucionExp() {
-        return institucionExp;
+    public String getEmpresa() {
+        return empresa;
     }
 
-    public void setInstitucionExp(String institucionExp) {
-        this.institucionExp = institucionExp;
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
     }
 
-    public String getTituloExp() {
-        return tituloExp;
+    public int getAnoInicio() {
+        return anoInicio;
     }
 
-    public void setTituloExp(String tituloExp) {
-        this.tituloExp = tituloExp;
+    public void setAnoInicio(int anoInicio) {
+        this.anoInicio = anoInicio;
     }
 
-    public int getAnoInicioExp() {
-        return anoInicioExp;
+    public int getAnoFin() {
+        return anoFin;
     }
 
-    public void setAnoInicioExp(int anoInicioExp) {
-        this.anoInicioExp = anoInicioExp;
+    public void setAnoFin(int anoFin) {
+        this.anoFin = anoFin;
     }
 
-    public int getAnoFinExp() {
-        return anoFinExp;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setAnoFinExp(int anoFinExp) {
-        this.anoFinExp = anoFinExp;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
-    
 }
+        
+
+    
+      
+    
+    
+
   
         
     
