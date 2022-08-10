@@ -27,6 +27,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
     UserDetailsServiceImpl userDetailsServiceImpl;
     @Autowired
     JwtEntryPoint jwtEntryPoint;
+    
     @Bean
     public JwtTokenFilter jwtTokenFilter(){
         return new JwtTokenFilter();
@@ -39,18 +40,19 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable().authorizeHttpRequests().antMatchers("/**")
+        http.cors().and().csrf().disable().authorizeRequests().antMatchers("/**")
                 .permitAll().anyRequest().authenticated().and().exceptionHandling()
                 .authenticationEntryPoint(jwtEntryPoint).and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
     
-    @Bean
+    
     @Override
     protected AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
     }
-
+    
+    @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();

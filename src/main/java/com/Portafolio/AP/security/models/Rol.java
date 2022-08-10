@@ -23,15 +23,15 @@ public class Rol implements Serializable {
 
 //constructor
 
-public Rol(){
+    public Rol() {
 
-}
+    }
 
-public Rol (RolNombre rolNombre){
-this.rolNombre = rolNombre;
-}
+    public Rol(RolNombre rolNombre) {
+        this.rolNombre = rolNombre;
+    }
 
-//geters y seters
+    //geters y seters
 
     public int getId() {
         return id;
@@ -48,4 +48,9 @@ this.rolNombre = rolNombre;
     public void setRolNombre(RolNombre rolNombre) {
         this.rolNombre = rolNombre;
     }
-}
+    
+ }
+
+
+
+   

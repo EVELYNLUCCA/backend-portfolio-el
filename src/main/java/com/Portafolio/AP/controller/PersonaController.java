@@ -23,17 +23,16 @@ public class PersonaController {
     @Autowired
     private IPersonaService personaService;
     
+     @GetMapping("/ver/persona")
+    @ResponseBody
+    public List <Persona> getPersona(){
+        return personaService.verPersona();
+    }
     
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/nuevo/persona")
 	public void crearPersona(@RequestBody Persona persona){
             personaService.crearPersona(persona);
-    }
-    
-    @GetMapping("/ver/persona")
-    @ResponseBody
-    public List <Persona> getPersona(){
-        return personaService.verPersona();
     }
     
     @PreAuthorize("hasRole('ADMIN')")

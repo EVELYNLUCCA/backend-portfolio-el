@@ -1,41 +1,32 @@
- 
-package com.Portafolio.AP.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package com.Portafolio.AP.controller.Dto;
 
-@Entity
+import javax.validation.constraints.NotBlank;
 
-public class Educacion {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEdu;
+
+public class dtoEducacion {
+    @NotBlank 
     private String institucionEdu;
+    @NotBlank 
     private String tituloEdu;
+    @NotBlank 
     private int anoInicioEdu;
+    @NotBlank 
     private int anoFinEdu;
+    
+    //constructor
 
-    public Educacion() {
-        
+    public dtoEducacion() {
     }
 
-    public Educacion(Long idEdu, String institucionEdu, String tituloEdu, int anoInicioEdu, int anoFinEdu) {
-        this.idEdu = idEdu;
+    public dtoEducacion(String institucionEdu, String tituloEdu, int anoInicioEdu, int anoFinEdu) {
         this.institucionEdu = institucionEdu;
         this.tituloEdu = tituloEdu;
         this.anoInicioEdu = anoInicioEdu;
         this.anoFinEdu = anoFinEdu;
     }
-
-    public Long getIdEdu() {
-        return idEdu;
-    }
-
-    public void setIdEdu(Long idEdu) {
-        this.idEdu = idEdu;
-    }
+    
+    //getter y setter
 
     public String getInstitucionEdu() {
         return institucionEdu;
@@ -68,6 +59,4 @@ public class Educacion {
     public void setAnoFinEdu(int anoFinEdu) {
         this.anoFinEdu = anoFinEdu;
     }
-    
 }
-
