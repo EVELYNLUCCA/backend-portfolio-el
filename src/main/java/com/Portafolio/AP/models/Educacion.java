@@ -29,14 +29,6 @@ public class Educacion {
         this.anoFinEdu = anoFinEdu;
     }
 
-    public Long getIdEdu() {
-        return idEdu;
-    }
-
-    public void setIdEdu(Long idEdu) {
-        this.idEdu = idEdu;
-    }
-
     public String getInstitucionEdu() {
         return institucionEdu;
     }
