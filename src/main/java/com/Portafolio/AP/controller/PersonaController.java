@@ -25,7 +25,7 @@ public class PersonaController {
     @Autowired
     private IPersonaService personaService;
     
-     @GetMapping("/ver/persona")
+    @GetMapping("/ver/persona")
     @ResponseBody
     public List <Persona> getPersona(){
         return personaService.verPersona();
