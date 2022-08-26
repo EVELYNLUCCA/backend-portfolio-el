@@ -50,7 +50,8 @@ public class PersonaController {
             @RequestParam("apellido")String nuevoApellido,
             @RequestParam("titulo")String nuevoTitulo,
             @RequestParam("acercaDeMi")String nuevoAcercaDeMi,
-            @RequestParam("fotoPerfil")String nuevaFotoPerfil){
+            @RequestParam("fotoPerfil")String nuevaFotoPerfil,
+            @RequestParam("banner")String nuevoBanner){
         Persona persona = personaService.buscarPersona(id);
         
         persona.setNombre(nuevoNombre);
@@ -58,6 +59,7 @@ public class PersonaController {
         persona.setTitulo(nuevoTitulo);
         persona.setAcercaDeMi(nuevoAcercaDeMi);
         persona.setFotoPerfil(nuevaFotoPerfil);
+        persona.setBanner(nuevoBanner);
         
         personaService.crearPersona(persona);
         return persona;
